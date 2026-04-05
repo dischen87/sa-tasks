@@ -70,3 +70,7 @@ Die verbleibenden offenen Kriterien (`.env` setzen, Docker starten, Windmill Pip
 ## Automatischer Processor-Kommentar (2026-04-05, 3. Lauf)
 
 Status unverändert. Alle Code-Änderungen sind seit dem ersten Lauf committed und gepusht. Kein neuer Handlungsbedarf durch den automatischen Processor. Warten auf manuelle Deployment-Schritte durch Mathias.
+
+## Automatischer Processor-Kommentar (2026-04-05, 4. Lauf)
+
+Status unverändert. Ticket bleibt blockiert auf manuelle Server-Schritte. Kein Handlungsbedarf für den automatischen Processor.
