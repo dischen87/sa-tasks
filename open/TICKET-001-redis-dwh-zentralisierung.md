@@ -20,23 +20,23 @@ Architektur-Entscheidung: Redis-Master wird auf DWH Server (178.104.115.236) zen
 ## Akzeptanzkriterien
 
 ### DWH-Places
-- [ ] redis-staging Service in docker-compose.yml (Port 6379, 4GB, Passwort)
-- [ ] redis-production Service in docker-compose.yml (Port 6380, 40GB, Passwort)
+- [x] redis-staging Service in docker-compose.yml (Port 6379, 4GB, Passwort)
+- [x] redis-production Service in docker-compose.yml (Port 6380, 40GB, Passwort)
 - [ ] .env mit echten Passwoertern auf Server gesetzt
 - [ ] Beide Redis-Instanzen laufen und sind via Tailscale erreichbar
 
 ### sync
-- [ ] Neue Resources: redis_dwh_staging, redis_dwh_production (mit Passwoertern)
-- [ ] Neue Resources: booking_api_staging, strapi_staging
-- [ ] Scripts parametrisch: content_pull, booking_sync, unified, enrich_content, reviews_sync akzeptieren redis_resource Parameter
-- [ ] Neuer Flow: staging_sync_pipeline nutzt Staging-APIs + redis_dwh_staging
+- [x] Neue Resources: redis_dwh_staging, redis_dwh_production (mit Passwoertern)
+- [x] Neue Resources: booking_api_staging, strapi_staging
+- [x] Scripts parametrisch: content_pull, booking_sync, unified, enrich_content, reviews_sync akzeptieren redis_resource Parameter
+- [x] Neuer Flow: staging_sync_pipeline nutzt Staging-APIs + redis_dwh_staging
 - [ ] Staging-Sync manuell getriggert: redis_dwh_staging hat content, booking, unified Keys
 - [ ] Production-Flows auf redis_dwh_production umgestellt (Phase 2, nach Staging-Validierung)
 
 ### lla-gateway
-- [ ] redis (Production): replicaof 100.88.39.101 6380 (DWH Production Redis)
-- [ ] redis-staging: replicaof 100.88.39.101 6379 (DWH Staging Redis)
-- [ ] Passwoerter als Env Vars statt hardcoded
+- [x] redis (Production): replicaof 100.88.39.101 6380 (DWH Production Redis)
+- [x] redis-staging: replicaof 100.88.39.101 6379 (DWH Staging Redis)
+- [x] Passwoerter als Env Vars statt hardcoded
 - [ ] Staging Gateway liefert Aktivitaeten via /v2/entity-management/activities
 - [ ] Staging Gateway liefert Reference Data via /v2/reference/*
 
@@ -45,3 +45,16 @@ Architektur-Entscheidung: Redis-Master wird auf DWH Server (178.104.115.236) zen
 - [ ] Gateway redis-staging: repliziert von DWH, hat unified Keys
 - [ ] OSSA Staging: Aktivitaeten-Liste zeigt Daten
 - [ ] OSSA Staging: Neue Aktivitaet erstellen funktioniert
+
+## Automatischer Processor-Kommentar (2026-04-05)
+
+Alle Code-Änderungen committed und gepusht:
+- **DWH-Places** (`26bf06b`): redis-staging (6379/4GB) + redis-production (6380/40GB) in docker-compose
+- **sync** (`e9327f8`): Resources redis_dwh_staging/production + booking_api_staging + strapi_staging; parametrische Scripts; staging_sync_pipeline Flow
+- **lla-gateway** (`6f5c88e`): replicaof 100.88.39.101 6379/6380, Passwörter via Env Vars
+
+Offene Punkte erfordern manuelle Schritte auf dem Server:
+1. `.env` auf DWH-Server (178.104.115.236) mit echten Passwörtern setzen → `docker compose up -d`
+2. Windmill staging_sync_pipeline manuell triggern und Schlüssel in redis-staging verifizieren
+3. Gateway Staging neu deployen, dann End-to-End prüfen
+4. Phase 2 (Production-Flows auf redis_dwh_production) nach Staging-Validierung
