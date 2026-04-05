@@ -74,3 +74,7 @@ Status unverändert. Alle Code-Änderungen sind seit dem ersten Lauf committed u
 ## Automatischer Processor-Kommentar (2026-04-05, 4. Lauf)
 
 Status unverändert. Ticket bleibt blockiert auf manuelle Server-Schritte. Kein Handlungsbedarf für den automatischen Processor.
+
+## Automatischer Processor-Kommentar (2026-04-05, 5. Lauf)
+
+Status unverändert. Alle Code-Änderungen sind seit dem ersten Lauf deployed. Ticket wartet auf manuelle Schritte durch Mathias (SSH auf DWH-Server, .env setzen, docker compose up, Windmill Pipeline triggern). Kein weiterer Handlungsbedarf für den automatischen Processor.
