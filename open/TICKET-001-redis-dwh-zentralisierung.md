@@ -58,3 +58,11 @@ Offene Punkte erfordern manuelle Schritte auf dem Server:
 2. Windmill staging_sync_pipeline manuell triggern und Schlüssel in redis-staging verifizieren
 3. Gateway Staging neu deployen, dann End-to-End prüfen
 4. Phase 2 (Production-Flows auf redis_dwh_production) nach Staging-Validierung
+
+## Automatischer Processor-Kommentar (2026-04-05, Folgelauf)
+
+Alle Repos sind up-to-date. Keine weiteren Code-Änderungen möglich.
+
+**Status: Blockiert auf manuelle Server-Deployment-Schritte.**
+
+Die verbleibenden offenen Kriterien (`.env` setzen, Docker starten, Windmill Pipeline triggern, End-to-End Verifikation) erfordern direkten SSH-Zugriff auf DWH-Server (178.104.115.236) und Windmill-Zugriff. Der automatische Processor kann diese Schritte nicht ausführen.
