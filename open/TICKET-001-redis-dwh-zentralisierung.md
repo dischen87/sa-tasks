@@ -90,3 +90,7 @@ Status unverändert. Alle Code-Änderungen seit dem ersten Lauf deployed und gep
 ## Automatischer Processor-Kommentar (2026-04-05, 8. Lauf)
 
 Status unverändert. Blockiert auf manuelle Server-Schritte (SSH → DWH, .env, docker compose up, Windmill). Kein Handlungsbedarf.
+
+## Automatischer Processor-Kommentar (2026-04-06)
+
+Status unverändert. Ticket bleibt blockiert auf manuelle Deployment-Schritte. Kein Handlungsbedarf für den automatischen Processor.
