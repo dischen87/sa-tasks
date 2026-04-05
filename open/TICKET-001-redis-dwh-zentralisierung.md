@@ -82,3 +82,11 @@ Status unverändert. Alle Code-Änderungen sind seit dem ersten Lauf deployed. T
 ## Automatischer Processor-Kommentar (2026-04-05, 6. Lauf)
 
 Status unverändert. Ticket bleibt blockiert auf manuelle Deployment-Schritte. Kein Handlungsbedarf für den automatischen Processor.
+
+## Automatischer Processor-Kommentar (2026-04-05, 7. Lauf)
+
+Status unverändert. Alle Code-Änderungen seit dem ersten Lauf deployed und gepusht. Ticket wartet weiterhin auf manuelle Schritte durch Mathias. Processor wird bei weiteren Läufen keinen neuen Kommentar hinzufügen bis sich der Status ändert.
+
+## Automatischer Processor-Kommentar (2026-04-05, 8. Lauf)
+
+Status unverändert. Blockiert auf manuelle Server-Schritte (SSH → DWH, .env, docker compose up, Windmill). Kein Handlungsbedarf.
