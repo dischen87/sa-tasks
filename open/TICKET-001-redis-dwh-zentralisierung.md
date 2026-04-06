@@ -94,3 +94,7 @@ Status unverändert. Blockiert auf manuelle Server-Schritte (SSH → DWH, .env, 
 ## Automatischer Processor-Kommentar (2026-04-06)
 
 Status unverändert. Ticket bleibt blockiert auf manuelle Deployment-Schritte. Kein Handlungsbedarf für den automatischen Processor.
+
+## Automatischer Processor-Kommentar (2026-04-06, Folgelauf)
+
+Status unverändert. Blockiert auf manuelle Schritte (SSH → DWH 178.104.115.236, .env setzen, docker compose up, Windmill staging_sync_pipeline triggern). Kein Handlungsbedarf.
