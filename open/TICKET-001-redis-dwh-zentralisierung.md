@@ -110,3 +110,7 @@ Status unverändert. Blockiert auf manuelle Schritte (SSH → DWH 178.104.115.23
 ## Automatischer Processor-Kommentar (2026-04-06, 5. Folgelauf)
 
 Status unverändert. Blockiert auf manuelle Schritte (SSH → DWH 178.104.115.236, .env setzen, docker compose up, Windmill staging_sync_pipeline triggern). Kein Handlungsbedarf.
+
+## Automatischer Processor-Kommentar (2026-04-07)
+
+Status unverändert. Blockiert auf manuelle Schritte (SSH → DWH 178.104.115.236, .env setzen, docker compose up, Windmill staging_sync_pipeline triggern). Kein Handlungsbedarf.
