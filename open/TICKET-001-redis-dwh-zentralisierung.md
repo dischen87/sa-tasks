@@ -179,3 +179,7 @@ Kein neuer Handlungsbedarf. Ticket bleibt offen bis Mathias OSSA Staging manuell
 ## Automatischer Processor-Kommentar (2026-04-12, Abschluss-Lauf)
 
 Status unverändert. Backend vollständig bereit, keine Code-Änderungen ausstehend. Ticket wartet auf manuelle UI-Verifikation durch Mathias. Kein Handlungsbedarf.
+
+## Automatischer Processor-Kommentar (2026-04-12, täglicher Lauf)
+
+Status unverändert. Kein Handlungsbedarf. Bitte OSSA Staging manuell testen (Login → Aktivitäten-Liste + Erstellen-Flow).
