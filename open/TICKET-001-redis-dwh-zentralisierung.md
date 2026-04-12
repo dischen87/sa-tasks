@@ -208,3 +208,7 @@ Backend-Zustand erneut verifiziert:
 - `operations-staging.swissactivities.com`: App läuft (302 Login-Redirect) ✅
 
 Verbleibend: Mathias muss sich in OSSA Staging einloggen und die Aktivitäten-Liste + Erstellen-Flow verifizieren. Ohne Credentials kein automatischer UI-Test möglich.
+
+## Automatischer Processor-Kommentar (2026-04-12, täglicher Status-Check)
+
+Status unverändert. Backend vollständig bereit. Kein Handlungsbedarf für den automatischen Processor — wartet auf manuelle UI-Verifikation durch Mathias.
