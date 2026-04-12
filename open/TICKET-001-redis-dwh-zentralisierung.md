@@ -22,27 +22,27 @@ Architektur-Entscheidung: Redis-Master wird auf DWH Server (178.104.115.236) zen
 ### DWH-Places
 - [x] redis-staging Service in docker-compose.yml (Port 6379, 4GB, Passwort)
 - [x] redis-production Service in docker-compose.yml (Port 6380, 40GB, Passwort)
-- [ ] .env mit echten Passwoertern auf Server gesetzt
-- [ ] Beide Redis-Instanzen laufen und sind via Tailscale erreichbar
+- [x] .env mit echten Passwoertern auf Server gesetzt
+- [x] Beide Redis-Instanzen laufen und sind via Tailscale erreichbar
 
 ### sync
 - [x] Neue Resources: redis_dwh_staging, redis_dwh_production (mit Passwoertern)
 - [x] Neue Resources: booking_api_staging, strapi_staging
 - [x] Scripts parametrisch: content_pull, booking_sync, unified, enrich_content, reviews_sync akzeptieren redis_resource Parameter
 - [x] Neuer Flow: staging_sync_pipeline nutzt Staging-APIs + redis_dwh_staging
-- [ ] Staging-Sync manuell getriggert: redis_dwh_staging hat content, booking, unified Keys
-- [ ] Production-Flows auf redis_dwh_production umgestellt (Phase 2, nach Staging-Validierung)
+- [x] Staging-Sync manuell getriggert: redis_dwh_staging hat content, booking, unified Keys
+- [x] Production-Flows auf redis_dwh_production umgestellt (Phase 2, nach Staging-Validierung)
 
 ### lla-gateway
 - [x] redis (Production): replicaof 100.88.39.101 6380 (DWH Production Redis)
 - [x] redis-staging: replicaof 100.88.39.101 6379 (DWH Staging Redis)
 - [x] Passwoerter als Env Vars statt hardcoded
-- [ ] Staging Gateway liefert Aktivitaeten via /v2/entity-management/activities
-- [ ] Staging Gateway liefert Reference Data via /v2/reference/*
+- [x] Staging Gateway liefert Aktivitaeten via /v2/entity-management/activities
+- [x] Staging Gateway liefert Reference Data via /v2/reference/*
 
 ### Verifizierung (End-to-End)
-- [ ] DWH redis-staging: unified:de-CH:chunk:0 existiert
-- [ ] Gateway redis-staging: repliziert von DWH, hat unified Keys
+- [x] DWH redis-staging: unified:de-CH:chunk:0 existiert
+- [x] Gateway redis-staging: repliziert von DWH, hat unified Keys
 - [ ] OSSA Staging: Aktivitaeten-Liste zeigt Daten
 - [ ] OSSA Staging: Neue Aktivitaet erstellen funktioniert
 
@@ -130,6 +130,30 @@ Status unverändert. Blockiert auf manuelle Schritte (SSH → DWH 178.104.115.23
 ## Automatischer Processor-Kommentar (2026-04-10)
 
 Status unverändert. Kein Handlungsbedarf für den automatischen Processor.
+
+## Automatischer Processor-Kommentar (2026-04-12, Folgelauf)
+
+Signifikanter Fortschritt. Alle Infra-Schritte verifiziert und staging_sync_pipeline erfolgreich getriggert:
+
+**DWH-Places (178.104.115.236):**
+- `dwh-redis-staging` (Port 6379) und `dwh-redis-production` (Port 6380) laufen seit 5 Tagen healthy
+- `.env` mit echten Passwörtern gesetzt, beide Instanzen via Tailscale (100.88.39.101) erreichbar
+
+**sync (Windmill):**
+- `staging_sync_pipeline` via Windmill API getriggert (`POST /api/w/lla/jobs/run/f/f%2Fflows%2Fstaging_sync_pipeline`)
+- Flow erfolgreich abgeschlossen (generation: 1776006681760, built: 2026-04-12T15:14:47Z)
+- DWH redis-staging: 7943+ Keys, alle Locales mit unified Chunks befüllt (`unified:de-CH:chunk:0` ✅)
+- **Phase 2 bereits erledigt:** `full_sync_pipeline` schreibt via `f/resources/redis_local` → `100.88.39.101:6380` = DWH Production Redis. Production Redis: 19947 Keys, unified:de-CH:chunk:0 vorhanden.
+
+**lla-gateway:**
+- Gateway staging-Redis repliziert von DWH (role: slave, master_link_status: up, 7943 Keys)
+- `staging-lla2.swissactivities.com/v2/entity-management/activities`: liefert Aktivitäten (3 Ergebnisse de-CH)
+- `/v2/reference/locations` und `/v2/reference/activity-types`: liefern Daten (5 Locations, 4 Types)
+- OSSA Operations staging (`SA_GATEWAY_URL=https://staging-lla2.swissactivities.com`) korrekt konfiguriert
+
+**Verbleibend (nur noch UI-Verifikation durch Mathias):**
+- [ ] OSSA Staging: Browser-Login → Aktivitäten-Liste zeigt Daten
+- [ ] OSSA Staging: Neue Aktivität erstellen funktioniert
 
 ## Automatischer Processor-Kommentar (2026-04-12)
 
