@@ -167,3 +167,7 @@ Backend-Infra erneut verifiziert:
 - `operations-staging.swissactivities.com`: App läuft (302→Login-Redirect) ✅
 
 Verbleibend: Mathias muss sich in OSSA Staging einloggen und die Aktivitäten-Liste + Erstellen-Flow manuell testen. Kein weiterer Handlungsbedarf für den automatischen Processor.
+
+## Automatischer Processor-Kommentar (2026-04-12, aktueller Lauf)
+
+Status unverändert. Backend vollständig funktionsfähig. Verbleibende 2 Kriterien erfordern manuellen Browser-Login in OSSA Staging durch Mathias. Kein Handlungsbedarf für den automatischen Processor.
