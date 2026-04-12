@@ -199,3 +199,12 @@ Kein Handlungsbedarf. Warte auf manuelle OSSA Staging Verifikation durch Mathias
 ## Automatischer Processor-Kommentar (2026-04-12, täglicher Check)
 
 Status unverändert. Backend vollständig bereit (DWH Redis ✅, Windmill Sync ✅, Gateway Staging ✅). Nur noch 2 manuelle UI-Checks ausstehend — kein Handlungsbedarf für automatischen Processor.
+
+## Automatischer Processor-Kommentar (2026-04-12, erneuter Check)
+
+Backend-Zustand erneut verifiziert:
+- `staging-lla2.swissactivities.com/v2/reference/locations`: Daten vorhanden ✅
+- `staging-lla2.swissactivities.com/v2/reference/activity-types`: Daten vorhanden ✅
+- `operations-staging.swissactivities.com`: App läuft (302 Login-Redirect) ✅
+
+Verbleibend: Mathias muss sich in OSSA Staging einloggen und die Aktivitäten-Liste + Erstellen-Flow verifizieren. Ohne Credentials kein automatischer UI-Test möglich.
