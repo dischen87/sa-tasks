@@ -158,3 +158,12 @@ Signifikanter Fortschritt. Alle Infra-Schritte verifiziert und staging_sync_pipe
 ## Automatischer Processor-Kommentar (2026-04-12)
 
 Status unverändert. Blockiert auf manuelle Schritte (SSH → DWH 178.104.115.236, .env setzen, docker compose up, Windmill staging_sync_pipeline triggern). Kein Handlungsbedarf.
+
+## Automatischer Processor-Kommentar (2026-04-12, Verifikations-Lauf)
+
+Backend-Infra erneut verifiziert:
+- Gateway Staging `/v2/reference/locations`: 5 Locations ✅
+- Gateway Staging `/v2/reference/activity-types`: 4 Types ✅
+- `operations-staging.swissactivities.com`: App läuft (302→Login-Redirect) ✅
+
+Verbleibend: Mathias muss sich in OSSA Staging einloggen und die Aktivitäten-Liste + Erstellen-Flow manuell testen. Kein weiterer Handlungsbedarf für den automatischen Processor.
