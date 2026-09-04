@@ -4,7 +4,7 @@ created: 2026-09-04
 reporter: mobile_app
 needs: lla-gateway,mobile_app
 priority: high
-status: in-progress
+status: done
 ---
 
 ## Problem
@@ -65,3 +65,5 @@ dorthin, mit ganzem Weg inkl. Fussweg und Umsteigen, wie heute im Karten-Panel.
   `places` — Phase 2 laut `docs/search-places-plan.md`.
 - Hotels ohne OSM-Eintrag fehlen im Geocoder.
 - Bundle erreicht Geräte erst nach «Widen OTA to 100 %».
+
+Erledigt 2026-09-05: alle Kriterien erfüllt und im Simulator nachgewiesen.
